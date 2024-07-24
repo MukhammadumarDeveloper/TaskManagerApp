@@ -48,7 +48,7 @@ public class TaskServiceImpl implements TaskService {
                 .orElseThrow(() ->  new TaskNotFoundException(id));
 
         taskDto.setId(taskEntity1.getId());
-        taskDto.setCreatedDate(DateTimeUtils.convertDateToString(taskEntity1.getCreatedDate()));
+        taskDto.setCreatedDate(DateTimeUtils.convertDateToString(taskEntity1.getCreateDate()));
 
         TaskEntity newTaskEntity = TaskMapper.dtoToEntity(taskDto);
 
