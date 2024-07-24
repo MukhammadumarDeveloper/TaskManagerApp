@@ -25,4 +25,5 @@ public class TaskDto {
     @NotNull(message = "due date shouldn't be null")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
     private String dueDate;
+    private String createdDate;
 }
