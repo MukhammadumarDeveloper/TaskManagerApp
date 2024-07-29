@@ -15,7 +15,7 @@ public interface TaskRepository extends CrudRepository<TaskEntity, Integer> {
     TaskEntity getTaskByTitle(@Param("title") String title);
 
     @Query("SELECT e FROM TaskEntity e WHERE e.id = :id AND e.isDeleted = false")
-    Optional<TaskEntity> findByIdAndIsDeletedFalse(@Param("id") long id);
+    Optional<TaskEntity> findByIdAndIsDeletedFalse(@Param("id") Integer id);
 
     @Query("SELECT e FROM TaskEntity e WHERE e.isDeleted = false")
     List<TaskEntity> findAllByIsDeletedFalse();

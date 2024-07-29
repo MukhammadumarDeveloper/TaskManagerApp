@@ -28,13 +28,14 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public String createTask(TaskDto taskDto) {
         if (taskDto != null) {
-            taskDto.setCreatedDate(LocalDateTime.now()
-                    .format(DateTimeFormatter
-                            .ofPattern("yyyy-MM-dd HH:mm:ss")));
+            // taskDto.setCreatedDate();
 
             TaskEntity taskEntity = TaskMapper.dtoToEntity(taskDto);
+            taskEntity.setCreateDate(DateTimeUtils.convertStringToDate(LocalDateTime.now()
+                    .format(DateTimeFormatter
+                            .ofPattern("yyyy-MM-dd HH:mm:ss"))));
 
-
+            taskEntity.setIsDeleted(false);
             taskRepository.save(taskEntity);
             return "Task created";
         }
@@ -48,9 +49,11 @@ public class TaskServiceImpl implements TaskService {
                 .orElseThrow(() ->  new TaskNotFoundException(id));
 
         taskDto.setId(taskEntity1.getId());
-        taskDto.setCreatedDate(DateTimeUtils.convertDateToString(taskEntity1.getCreateDate()));
+
 
         TaskEntity newTaskEntity = TaskMapper.dtoToEntity(taskDto);
+        newTaskEntity.setCreateDate(taskEntity1.getCreateDate());
+        newTaskEntity.setIsDeleted(false);
 
         taskRepository.save(newTaskEntity);
 
@@ -81,6 +84,8 @@ public class TaskServiceImpl implements TaskService {
     public List<TaskDto> getAllTask() {
         List<TaskEntity> taskEntities = taskRepository.findAllByIsDeletedFalse();
 
-        return taskEntities.stream().map(TaskMapper::entityToDto).collect(Collectors.toList());
+        return taskEntities.stream()
+                .map(TaskMapper::entityToDto)
+                .collect(Collectors.toList());
     }
 }
