@@ -28,7 +28,6 @@ public class TaskServiceImpl implements TaskService {
     @Transactional
     public String createTask(TaskDto taskDto) {
         if (taskDto != null) {
-            // taskDto.setCreatedDate();
 
             TaskEntity taskEntity = TaskMapper.dtoToEntity(taskDto);
             taskEntity.setCreateDate(DateTimeUtils.convertStringToDate(LocalDateTime.now()

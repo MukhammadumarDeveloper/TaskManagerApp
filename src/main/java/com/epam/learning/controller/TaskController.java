@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,11 +17,11 @@ public interface TaskController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Create Task")
-    ResponseEntity<String> createTask(@RequestBody TaskDto taskDto);
+    ResponseEntity<String> createTask(@RequestBody TaskDto taskDto, BindingResult bindingResult);
 
     @PutMapping("/{id}")
     @ApiOperation("Update Task")
-    ResponseEntity<TaskDto> updateTask(@PathVariable Integer id, @RequestBody TaskDto taskDto);
+    ResponseEntity<?> updateTask(@PathVariable Integer id, @RequestBody TaskDto taskDto, BindingResult result);
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
