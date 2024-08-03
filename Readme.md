@@ -1,7 +1,7 @@
 # My Webpack Project
 
 ## Description
-This is our internship project for Epam Summer Camp 2024. The backend is configured using Spring Boot with a PostgreSQL database.
+This is our internship project for Epam Summer Camp 2024. For the backend we used Spring Boot with a PostgreSQL database.
 
 ## Table of Contents
 - [Installation](#installation)
