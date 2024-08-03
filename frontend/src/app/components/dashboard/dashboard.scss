@@ -1,0 +1,115 @@
+@import "../../../index.scss";
+
+.table__wrapper {
+    .table {
+        border: none;
+        border-collapse: collapse;
+    
+        tr {
+            th {
+                padding: 1.3rem 2.4rem;
+                text-align: start;
+                background-color: $table-th-background-color;
+                color: $blue-gray;
+                font-weight: 400;
+                font-size: 1.4rem;
+                line-height: 2.24rem;
+                min-width: 14.425rem;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+    
+                &:nth-child(1) {
+                    min-width: 25.2rem;
+                    border-radius: 0.4rem 0 0 0.4rem;
+                }
+    
+                &:nth-child(2) {
+                    min-width: 45.1rem;
+                }
+    
+                &:nth-child(6) {
+                    border-radius: 0 0.4rem 0.4rem 0;
+                    text-align: end;
+                }
+            }
+    
+            td {
+                text-align: start;
+                padding: 2.5rem 2.4rem;
+                font-size: 1.4rem;
+                font-weight: 400;
+                line-height: 2.24rem;
+                color: $blue-gray;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 14.425rem;
+                border-bottom: 1px solid $black-opacity;
+    
+                &:nth-child(1) {
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    line-height: 2.24rem;
+                    color: $black;
+                    max-width: 25.2rem;
+                }
+    
+                &:nth-child(2) {
+                    max-width: 45.1rem;
+                }
+    
+                &:nth-child(6) {
+                    text-align: end;
+                }
+    
+                span {
+                    display: inline-block;
+                    padding: 0.3rem 1rem;
+                    color: $black2;
+                    font-size: 1.4rem;
+                    font-weight: 400;
+                    line-height: 2.24rem;
+                    border-radius: 0.4rem;
+                }
+            }
+    
+            .table__medium span, 
+            .table__IN_PROGRESS span {
+                background-color: $medium-priority;
+            }
+    
+            .table__low span,
+            .table__DONE span {
+                background-color: $low-priority;
+            }
+    
+            .table__top span {
+                background-color: $high-priority;
+            }
+    
+            .table__TODO span {
+                background-color: $status-to-do;
+            }
+    
+            .table__REVIEW span {
+                background-color: $status-review;
+            }
+        }
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        gap: 0.975rem;
+        margin-top: 1.6rem;
+        margin-left: 2.4rem;
+        padding: 0.8rem 0.6rem 0.8rem 0.375rem;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 1.96rem;
+        color: $blue-violet;
+        background: none;
+        cursor: pointer;
+    }
+}

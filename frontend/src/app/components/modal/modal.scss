@@ -1,0 +1,292 @@
+@import "../../../index.scss";
+
+.task-modal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $black-opacity2;
+  
+    &__container {
+      position: relative;
+      width: 100%;
+      max-width: 50rem;
+      margin: 0 auto;
+      display: flex;
+      background-color: $white;
+      padding: 1.6rem;
+    }
+
+    .modal-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 1.2rem 2.4rem 3.2rem;
+    
+        .label {
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          margin-bottom: 1rem;
+          font-size: 1.4rem;
+          line-height: 2.2rem;
+          color: $blue-gray;
+    
+          span {
+            width: 12rem;
+          }
+    
+          input,
+          select {
+            border: 1px solid;
+            border-color: rgba($color: $blue-violet, $alpha: 0.0);
+            flex-grow: 1;
+            font-size: 1.2rem;
+            line-height: 2rem;
+            color: $select;
+            padding: 0.5rem 0.8rem;
+            border-radius: 0.4rem;
+    
+            &:disabled {
+              background-color: $white;
+            }
+
+            &:focus {
+                border-color: rgba($color: $blue-violet, $alpha: 1.0);
+            }
+          }
+
+          select {
+
+            option span {
+                padding: 0.05rem 1rem;
+                color: $black2;
+                font-weight: 400;
+                font-size: 1.2rem;
+                line-height: 1.92rem;
+            }
+
+            .option__medium span, 
+            .option__inProgress span {
+                background-color: $medium-priority;
+            }
+    
+            .option__low span,
+            .option__done span {
+                background-color: $low-priority;
+            }
+    
+            .option__high span {
+                background-color: $high-priority;
+            }
+    
+            .option__toDo span {
+                background-color: $status-to-do;
+            }
+    
+            .option__review span {
+                background-color: $status-review;
+            }
+          }
+    
+          &--title {
+            height: 3.2rem;
+            margin-bottom: 1.6rem;
+    
+            .input__name {
+              padding: 0.4rem 0.8rem;
+              margin-left: -0.8rem;
+              height: 100%;
+              width: 100%;
+              font-size: 2rem;
+              line-height: 2.6rem;
+              color: $black;
+              margin-right: 2rem;
+              border: 0.1rem solid;
+              border-color: rgba($color: $blue-violet, $alpha: 0.0);
+              border-radius: 0.4rem;
+    
+              &::placeholder {
+                color: $black;
+                opacity: 1;
+              }
+    
+              &::-ms-input-placeholder {
+                color: $black;
+              }
+
+              &:focus {
+                border-color: rgba($color: $blue-violet, $alpha: 1.0);
+              }
+
+              &:focus::placeholder {
+                opacity: 0.5;
+              }
+            }
+          }
+    
+          &--description {
+            display: flex;
+            height: auto;
+            margin-bottom: 0;
+            flex-direction: column;
+            align-items: start;
+    
+            margin-top: 2.5rem;
+    
+            textarea {
+              box-sizing: border-box;
+              width: 100%;
+              resize: none;
+              height: 10.4rem;
+              margin: 1.2rem 0 0;
+              border: none;
+              padding: 0.6rem 1.2rem;
+              background-color: $table-th-background-color;
+              color: $select;
+              font-size: 1.4rem;
+              line-height: 2.2rem;
+            }
+          }
+        }
+      }
+  
+    &--buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2.4rem;
+  
+      button {
+        border: 0.2rem solid transparent;
+        border-radius: 0.4rem;
+        padding: 0.6rem 1.6rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        cursor: pointer;
+      }
+  
+      .submit-button {
+        margin-left: auto;
+        color: $white;
+        border-color: $blue-violet;
+        background-color: $blue-violet;
+  
+        &:hover {
+          background-color: $white;
+          border-color: $blue-violet;
+          color: $blue-violet;
+        }
+  
+        &:active {
+          background-color: $white;
+          color: $blue-violet;
+          border-color: $white;
+        }
+      }
+  
+      .delete-button {
+        padding: 0.6rem;
+        color: $delete-button;
+        background-color: $white;
+  
+        &:hover {
+          border-color: $delete-button;
+        }
+  
+        &:active {
+          background-color: $delete-button;
+          color: $white;
+          border-color: $delete-button;
+        }
+      }
+    }
+  
+    .close-modal-button {
+      position: absolute;
+      width: 2.4rem;
+      height: 2.4rem;
+      right: 1.2rem;
+      top: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      border: 0.2rem solid $white;
+      border-radius: 0.4rem;
+      cursor: pointer;
+  
+      &:hover {
+        border-color: $blue-gray;
+      }
+  
+      &:active {
+        background-color: $blue-gray;
+        border-color: $blue-gray;
+        color: $white;
+      }
+    }
+  
+    // Mobile Styles
+    @media (max-width: 768px) {
+      &--content {
+        max-width: 90%;
+      }
+  
+      &--buttons {
+        flex-direction: column;
+        align-items: center;
+  
+        button {
+          width: 100%;
+          margin-bottom: 1rem;
+        }
+  
+        .submit-button {
+          margin-left: 0;
+        }
+      }
+  
+      .modal-form {
+        padding: 1.2rem 1.6rem 2.4rem;
+  
+        .label {
+          flex-direction: column;
+          align-items: flex-start;
+  
+          span {
+            width: auto;
+            margin-bottom: 0.5rem;
+          }
+  
+          input,
+          select {
+            width: 100%;
+          }
+  
+          &--title {
+            input {
+              font-size: 1.8rem;
+              line-height: 2.4rem;
+            }
+          }
+  
+          &--description {
+            textarea {
+              height: 8rem;
+            }
+          }
+        }
+      }
+  
+      .close-modal-button {
+        right: 0.8rem;
+        top: 0.8rem;
+      }
+    }
+  }
+  

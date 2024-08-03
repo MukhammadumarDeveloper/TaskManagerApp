@@ -1,0 +1,39 @@
+@import "../../../index.scss";
+
+.pagination {
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        column-gap: 2.8rem;
+        margin: 2.8rem 0;
+        border-bottom: 1px solid $pagination-border-color;
+
+        .pagination__btn {
+            color: $blue-gray;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 2.56rem;
+            padding-bottom: 1rem;
+            background: none;
+            cursor: pointer;
+        }
+
+        .active__btn {
+            position: relative;
+            color: $blue-violet;
+            font-weight: 400;
+            font-size: 1.6rem;
+            line-height: 2.56rem;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 0.2rem;
+                width: 100%;
+                background-color: $blue-violet;
+            }
+        }
+    }
+}

@@ -1,0 +1,166 @@
+@import "../../../index.scss";
+
+header {
+     background-color: $black;
+     color: $white;
+     overflow: hidden;
+     position: relative;
+
+        .header {
+            &--top,
+            &--bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            &--top {
+                padding: 2.25rem 8rem 0;
+
+                .logout__btn{
+                    all: unset;
+                    color: $white;
+                    font-size: 2.4rem;
+                    cursor: pointer;
+                    :hover{
+                       color: $white-opacity;
+                    }  
+                }
+               
+               
+                .menu__btn{
+                    display: none;
+                }
+               
+
+                .logo {
+                    display: flex;
+                    align-items: center;
+                    column-gap: 0.9rem;
+            
+                    &--image {
+                        height: 1.9rem;
+                    }
+            
+                    &--heading {
+                        font-size: 1.448rem;
+                        line-height: 1.8rem;
+                        color: $white;
+                    }
+                }
+
+                @media (max-width: 650px) {
+                    padding: 2.25rem 2.4rem 0;
+
+                    .menu__btn {
+                        display: block;
+                        all: unset;
+                        color: $white;
+                        font-size: 2.4rem;
+                        cursor: pointer;
+
+                        :hover{
+                        color: $white-opacity;
+                        }
+
+                        .fa-xmark {
+                            rotate: -90deg;
+                        }
+                    }
+
+                    .logout__btn {
+                        display: none;
+                    }
+                }
+            }
+
+            &--bottom {
+                padding: 0 8rem 2.4rem;
+
+                .personal-info {
+
+                    &--question{
+                        margin-top: 0.4rem;
+                        font-weight: 400;
+                        line-height: 2.56rem;
+                        font-size: 1.6rem;
+                        color: $white-opacity;
+                    }
+                }
+
+                .phone-number {
+
+                    &--top,
+                    &--bottom {
+                        font-weight: 400;
+                        font-size: 1.448rem;
+                        line-height: 1.752rem;
+                    }
+
+                    &--top {
+                        color: $white-opacity;
+                        margin-bottom: 0.4rem;
+                    }
+
+                    &--bottom {
+                        font-weight: 500;
+                        color: $white;
+                    }
+                }
+
+                @media (max-width: 650px) {
+                    padding: 0 2.4rem 2.4rem;
+
+                    .phone-number {
+                        display: none;
+                    }
+                }
+            }
+
+            &__menu {
+                padding: 0 2.4rem;
+                position: absolute;
+                top: 9.65rem;
+                right: -100%;
+                left: 100%;
+                bottom: 0;
+                background: $black;
+                height: 100vh;
+                transition: left .2s ease-in-out,
+                right .2s ease-in-out;
+
+                .phone-number--bottom {
+                    font-weight: 500;
+                    color: $white-opacity;
+                    font-size: 1.6rem;
+                    margin-top: 0.4rem;
+                }
+    
+                & button {
+                    width: 100%;
+                    padding: 1.3rem 0;
+                    background-color: $blue-violet;
+                    text-align: center;
+                    column-gap: 0.6rem;
+                    color: $white;
+                    font-size: 1.6rem;
+                    line-height: 2.24rem;
+                    font-weight: 500;
+                    margin-top: 4.6rem;
+                }
+
+                @media (max-width: 650px) {
+                    &-active {
+                        right: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+    .line {
+        margin: 2.25rem 0 2.4rem 0;
+        height: 0.1rem;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.08);
+    }
+}
