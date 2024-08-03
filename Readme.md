@@ -20,7 +20,7 @@ This is our internship project for Epam Summer Camp 2024. For the backend we use
 ### Backend Setup
 1. Clone the repository:
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/MukhammadumarDeveloper/TaskManagerApp
     ```
 2. Navigate to the backend directory:
     ```bash
