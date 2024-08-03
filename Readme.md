@@ -1,4 +1,4 @@
-# My Webpack Project
+# Task Manager App
 
 ## Description
 This is our internship project for Epam Summer Camp 2024. For the backend we used Spring Boot with a PostgreSQL database.
